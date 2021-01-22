@@ -1,0 +1,36 @@
+<html>
+<head>
+<script type="text/javascript">
+function startTime()
+	{
+	var today=new Date();
+	var h=today.getHours();
+	var m=today.getMinutes();
+	var s=today.getSeconds();
+	// add a zero in front of numbers<10
+	m=checkTime(m);
+	s=checkTime(s);
+	var GMTEDT=today.getHours()+4;
+    var GMTEST=today.getHours()+5;
+
+    
+    
+	document.getElementById('txt').innerHTML="<font size=18>"+h+":"+m+":"+s+"   EDT / UTC-4 --- MAR-14 to NOV-7 <br>"+h+":"+m+":"+s+"   EST / UTC-5 --- NOV-7 to MAR-14 <br>"+GMTEDT+":"+m+":"+s+"   EDT+4 / UTC <br>"+GMTEST+":"+m+":"+s+" EST+5 / UTC<br><br> UTC = GMT = ZULU</font>";
+	t=setTimeout('startTime()',500);
+	}
+	
+function checkTime(i)
+	{
+	if (i<10)
+		{
+		i="0" + i;
+		}
+	return i;
+	}
+	
+</script>
+</head>
+<body onload="startTime()">
+<div id="txt"></div>
+</body>
+</html>
